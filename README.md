@@ -7,5 +7,5 @@ The HTTP listener listening at 8080 and moving traffic to echo_service -our GRPC
 To Build  
 `docker build -t envoy-proxy -f ./Dockerfile .`
 
-To Run
+To Run  
 `docker run -d -p 8080:8080 envoy-proxy`
