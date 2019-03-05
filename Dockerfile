@@ -14,6 +14,13 @@
 
 FROM envoyproxy/envoy:latest
 
-COPY ./envoy.yaml /etc/envoy/envoy.yaml
+COPY envoy.yaml /etc/envoy.yaml
 
-CMD /usr/local/bin/envoy -c /etc/envoy/envoy.yaml
+EXPOSE 9091
+
+# ADD CA_cert.pem /etc/envoy/CA_cert.pem
+# ADD server_cert.pem /etc/envoy/server_cert.pem
+# ADD server_key.pem /etc/envoy/server_key.pem
+
+WORKDIR /etc/envoy
+CMD /usr/local/bin/envoy -c /etc/envoy.yaml
