@@ -17,7 +17,7 @@ static_resources:
                       routes:
                         - match: { prefix: "/" }
                           route:
-                            cluster: sim_service
+                            cluster: echo_service
                             max_grpc_timeout: 0s
                       cors:
                         allow_origin:
@@ -32,12 +32,15 @@ static_resources:
                   - name: envoy.cors
                   - name: envoy.router
   clusters:
-    - name: sim_service
+    - name: echo_service
       connect_timeout: 0.25s
       type: logical_dns
       http2_protocol_options: {}
       lb_policy: round_robin
-      hosts: # [{ socket_address: { address: sim-dep-grpc, port_value: 9090 } }]
-        socket_address:
-          address: localhost
-          port_value: 9090
+      hosts:
+        [
+          {
+            socket_address:
+              { address: sim-dep.default.svc.cluster.local, port_value: 9090 },
+          },
+        ]
