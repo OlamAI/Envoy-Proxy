@@ -39,5 +39,5 @@ static_resources:
       lb_policy: round_robin
       hosts: # [{ socket_address: { address: sim-dep-grpc, port_value: 9090 } }]
         socket_address:
-          address: sim-dep
+          address: localhost
           port_value: 9090

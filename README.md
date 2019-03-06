@@ -8,4 +8,4 @@ To Build
 `docker build -t olamai/envoy-proxy:0.0.1 -f ./Dockerfile .`
 
 To Run  
-`docker run -d -p 8080:8080 envoy-proxy`
+`docker run -d -p 9091:9091 olamai/envoy-proxy-dev:0.0.1`
