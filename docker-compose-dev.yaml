@@ -1,0 +1,9 @@
+version: "3"
+services:
+  envoy-proxy:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile.dev
+    image: olamai/envoy-proxy-dev:0.0.1
+    ports:
+      - "9091:9091"
