@@ -12,9 +12,9 @@ dockerize-prod: ## build and push prod proxy
 	docker-build-prod docker-push-prod
 
 # Building the docker builds
-docker-build-dev: ## build the dev proxy image 
+docker-build-prod: ## build the dev proxy image 
 	docker build -t olamai/envoy-proxy:0.0.1 -f ./Dockerfile .
-docker-build-prod: ## build the prod proxy image
+docker-build-dev: ## build the prod proxy image
 	docker build -t olamai/envoy-proxy-dev:0.0.1 -f ./Dockerfile.dev .
 # Pushing the docker builds
 docker-push-dev: ## push the dev image
