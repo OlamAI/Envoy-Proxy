@@ -6,10 +6,8 @@ help: ## Display this help screen
 ## ----------------------
 ## ------ DOCKER --------
 ## ----------------------
-dockerize-dev: ## build and push dev proxy
-	docker-build-dev docker-push-dev
-dockerize-prod: ## build and push prod proxy
-	docker-build-prod docker-push-prod
+dockerize-dev: docker-build-dev docker-push-dev ## build and push dev proxy
+dockerize-prod: docker-build-prod docker-push-prod ## build and push prod proxy
 
 # Building the docker builds
 docker-build-prod: ## build the dev proxy image 
