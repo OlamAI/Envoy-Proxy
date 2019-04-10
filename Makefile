@@ -11,9 +11,9 @@ dockerize-prod: docker-build-prod docker-push-prod ## build and push prod proxy
 
 # Building the docker builds
 docker-build-prod: ## build the dev proxy image 
-	docker build -t olamai/envoy-proxy:0.0.1 -f ./Dockerfile .
+	docker-compose -f docker-compose.yaml build
 docker-build-dev: ## build the prod proxy image
-	docker build -t olamai/envoy-proxy-dev:0.0.1 -f ./Dockerfile.dev .
+	docker-compose -f docker-compose-dev.yaml build
 # Pushing the docker builds
 docker-push-dev: ## push the dev image
 	docker push olamai/envoy-proxy-dev:0.0.1
@@ -23,7 +23,7 @@ docker-push-prod: ## push the prod image
 # Running and stopping the dev proxy locally
 docker-up-dev: ## start a local dev proxy
 	@echo "=============starting dev proxy locally============="
-	docker-compose -f ./docker-compose-dev.yaml up -d
+	docker-compose -f docker-compose-dev.yaml up -d
 docker-down-dev: ## shut down the local dev proxy server
 	docker-compose -f ./docker-compose-dev.yaml down
 

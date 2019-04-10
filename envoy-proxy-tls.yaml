@@ -14,7 +14,7 @@ static_resources:
                 virtual_hosts:
                   - name: local_service
                     domains:
-                    - "example.com"
+                    - "simulation.terrarium.ai"
                     routes:
                       - match: { prefix: "/" }
                         route:
@@ -36,9 +36,12 @@ static_resources:
             common_tls_context:
               tls_certificates:
                 - certificate_chain:
-                    filename: "/etc/terrarium-ai.crt"
+                    filename: "/etc/simulation-terrarium-ai.crt"
                   private_key:
-                    filename: "/etc/terrarium-ai.key"
+                    filename: "/etc/simulation-terrarium-ai.key"
+              validation_context:
+                trusted_ca:
+                  filename: /etc/ssl/certs/ca-certificates.crt
   clusters:
     - name: echo_service
       connect_timeout: 0.25s
@@ -48,6 +51,6 @@ static_resources:
       hosts:
         [
           {
-            socket_address: { address: host.docker.internal, port_value: 9090 },
+            socket_address: { address: sim-dep.default.svc.cluster.local, port_value: 9090 },
           },
         ]

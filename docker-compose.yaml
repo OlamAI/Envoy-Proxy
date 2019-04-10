@@ -3,8 +3,8 @@ services:
   envoy-proxy:
     build:
       context: ./
-      dockerfile: ./Dockerfile.dev
-    image: olamai/envoy-proxy-dev:0.0.1
+      dockerfile: ./Dockerfile
+    image: olamai/envoy-proxy:0.0.1
     expose:
       - "9091"
       - "443"
