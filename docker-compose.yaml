@@ -6,8 +6,8 @@ services:
       dockerfile: ./Dockerfile
     image: olamai/envoy-proxy:0.0.1
     expose:
-      - "9091"
+      - "80"
       - "443"
     ports:
-      - "9091:9091"
+      - "80:80"
       - "443:443"

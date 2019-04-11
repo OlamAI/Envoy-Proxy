@@ -2,7 +2,7 @@ FROM envoyproxy/envoy:latest
 
 COPY envoy-proxy-tls.yaml /etc/envoy.yaml
 
-EXPOSE 9091
+EXPOSE 80
 EXPOSE 443
 
 ADD simulation-terrarium-ai.crt /etc/simulation-terrarium-ai.crt
