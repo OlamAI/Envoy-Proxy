@@ -6,26 +6,26 @@ help: ## Display this help screen
 ## ----------------------
 ## ------ DOCKER --------
 ## ----------------------
-dockerize-dev: docker-build-dev docker-push-dev ## build and push dev proxy
-dockerize-prod: docker-build-prod docker-push-prod ## build and push prod proxy
+dockerize: docker-build docker-push ## build and push prod proxy
+dockerize-local: docker-build-local docker-push-local ## build and push dev proxy
 
 # Building the docker builds
-docker-build-prod: ## build the dev proxy image 
+docker-build: ## build the dev proxy image 
 	docker-compose -f docker-compose.yaml build
-docker-build-dev: ## build the prod proxy image
+docker-build-local: ## build the prod proxy image
 	docker-compose -f docker-compose-dev.yaml build
 # Pushing the docker builds
-docker-push-dev: ## push the dev image
-	docker push olamai/envoy-proxy-dev:0.0.1
-docker-push-prod: ## push the prod image
+docker-push: ## push the prod image
 	docker push olamai/envoy-proxy:0.0.1
+docker-push-local: ## push the dev image
+	docker push olamai/envoy-proxy-dev:0.0.1
 
 # Running and stopping the dev proxy locally
-docker-up-dev: ## start a local dev proxy
+docker-up-local: ## start a local dev proxy
 	@echo "=============starting dev proxy locally============="
-	docker-compose -f docker-compose-dev.yaml up -d
-docker-down-dev: ## shut down the local dev proxy server
-	docker-compose -f ./docker-compose-dev.yaml down
+	docker-compose -f docker-compose-local.yaml up -d
+docker-down-local: ## shut down the local dev proxy server
+	docker-compose -f ./docker-compose-local.yaml down
 
 docker-logs: ## tail the logs
 	docker-compose -f docker-compose-dev.yaml logs -f

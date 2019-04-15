@@ -6,3 +6,6 @@ The HTTP listener listening at 9091 and moving traffic to echo_service -our GRPC
 
 To get command help:  
 `make help`
+
+# Local vs. Prod
+There are 2 versions of this proxy, the regular proxy and the local proxy. The local proxy is made to be run on your LOCAL machine, using the docker-compose file whereas the regular proxy is to be used in K8s, either minikube or GKE.

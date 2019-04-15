@@ -5,8 +5,5 @@ COPY envoy-proxy-dev.yaml /etc/envoy.yaml
 EXPOSE 9091
 EXPOSE 443
 
-ADD terrarium-ai.crt /etc/terrarium-ai.crt
-ADD terrarium-ai.key /etc/terrarium-ai.key
-
 WORKDIR /etc/envoy
 CMD /usr/local/bin/envoy -c /etc/envoy.yaml

@@ -41,6 +41,6 @@ static_resources:
         [
           {
             socket_address:
-              { address: simulation.default.svc.cluster.local, port_value: 9090 },
+              { address: host.docker.internal, port_value: 9090 },
           },
         ]
